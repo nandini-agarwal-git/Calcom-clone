@@ -105,7 +105,7 @@ export default function EventTypesPage() {
           </button>
         </div>
       ) : (
-        <div style={{ border: '1px solid #1f1f1f', borderRadius: 11, overflow: 'hidden', backgroundColor: '#111' }}>
+        <div style={{ border: '1px solid #1f1f1f', borderRadius: 11, overflow: 'visible', backgroundColor: '#111' }}>
           {filtered.map((et, idx) => {
             const LocIcon = locIcon[et.location_type] || locIcon.default;
             return (
