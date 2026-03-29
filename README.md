@@ -13,7 +13,7 @@ A full-stack scheduling/booking application that closely replicates Cal.com's de
 | Database | PostgreSQL |
 | Styling | Custom CSS (Cal.com design system) |
 | Email | Nodemailer (optional) |
-| Deployment | Vercel (frontend) + Railway/Render (backend) |
+| Deployment | Vercel (frontend) + Render (backend) |
 
 ---
 
@@ -293,33 +293,11 @@ git push -u origin main
 
 ---
 
-## Deploying to Vercel + Railway
+## Deploying to Vercel + Render
 
-### Deploy Backend on Railway (recommended)
+### Deploy Backend on Render
 
-Railway gives you a free PostgreSQL + Node.js server.
-
-1. Go to https://railway.app and sign in with GitHub
-2. Click **New Project** → **Deploy from GitHub repo** → select `calcom-clone`
-3. Click **Add Service** → **PostgreSQL** — Railway creates a DB automatically
-4. Click your Node service → **Settings** → set:
-   - **Root Directory**: `backend`
-   - **Start Command**: `node src/index.js`
-5. Go to **Variables** tab and add:
-   ```
-   DATABASE_URL    = (copy from Railway PostgreSQL → Connect → DATABASE_URL)
-   NODE_ENV        = production
-   FRONTEND_URL    = https://your-app.vercel.app
-   PORT            = 5000
-   ```
-6. Railway auto-deploys. Copy your backend URL (e.g. `https://calcom-clone-production.up.railway.app`)
-7. Run migrations on Railway — in the Railway shell or locally:
-   ```bash
-   DATABASE_URL=your-railway-db-url npm run migrate
-   DATABASE_URL=your-railway-db-url npm run seed
-   ```
-
-### Alternative: Deploy Backend on Render
+Render gives you a free PostgreSQL + Node.js server.
 
 1. Go to https://render.com → New Web Service → Connect GitHub repo
 2. **Root Directory**: `backend`
@@ -337,7 +315,7 @@ Railway gives you a free PostgreSQL + Node.js server.
 3. **Root Directory**: `frontend`
 4. Under **Environment Variables**, add:
    ```
-   REACT_APP_API_URL     = https://your-backend.railway.app/api
+   REACT_APP_API_URL     = https://your-backend.onrender.app/api
    REACT_APP_BASE_URL    = https://your-app.vercel.app
    ```
 5. Click **Deploy**
@@ -365,7 +343,6 @@ Railway gives you a free PostgreSQL + Node.js server.
 
 ### ❌ React app shows blank page after Vercel deploy
 - Make sure `REACT_APP_API_URL` is set in Vercel environment variables
-- Check `frontend/vercel.json` exists (SPA rewrites)
 - Redeploy after adding env vars
 
 ### ❌ No time slots showing on booking page
