@@ -10,7 +10,11 @@ const app = express();
 app.use(helmet());
 app.use(morgan('combined'));
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  origin: [
+    'http://localhost:3000',
+    process.env.FRONTEND_URL,
+    'https://calcom-clone-five.vercel.app',
+  ].filter(Boolean),
   credentials: true
 }));
 app.use(express.json());
