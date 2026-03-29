@@ -1,0 +1,10 @@
+const express = require('express');
+const router = express.Router();
+const { getSchedules, getSchedule, createSchedule, updateSchedule, addDateOverride, deleteDateOverride } = require('../controllers/availability');
+router.get('/', getSchedules);
+router.get('/:id', getSchedule);
+router.post('/', createSchedule);
+router.put('/:id', updateSchedule);
+router.post('/:id/overrides', addDateOverride);
+router.delete('/:id/overrides/:overrideId', deleteDateOverride);
+module.exports = router;
