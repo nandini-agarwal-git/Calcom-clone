@@ -23,7 +23,7 @@ export default function PublicProfilePage() {
       <div style={{ textAlign:'center' }}>
         <div style={{ fontSize:48, marginBottom:14 }}>🔍</div>
         <h2 style={{ color:'#c0c0c0', fontSize:18, marginBottom:7 }}>Page not found</h2>
-        <p style={{ color:'#404040', fontSize:13 }}>@{username} doesn't exist or has no active events.</p>
+        <p style={{ color:'#909090', fontSize:13 }}>@{username} doesn't exist or has no active events.</p>
         <Link to="/" style={{ display:'inline-block', marginTop:18, fontSize:13, color:'#707070' }}>← Go home</Link>
       </div>
     </div>
@@ -51,11 +51,11 @@ export default function PublicProfilePage() {
           <div>
             <h1 style={{ fontSize:20, fontWeight:700, color:'#e8e8e8', letterSpacing:'-0.4px', marginBottom:5 }}>{user.name}</h1>
             {user.bio && <p style={{ fontSize:13, color:'#606060', lineHeight:1.6, marginBottom:7 }}>{user.bio}</p>}
-            {user.timezone && <div style={{ display:'flex', alignItems:'center', gap:5, fontSize:12, color:'#404040' }}><Globe size={12} />{user.timezone}</div>}
+            {user.timezone && <div style={{ display:'flex', alignItems:'center', gap:5, fontSize:12, color:'#808080' }}><Globe size={12} />{user.timezone}</div>}
           </div>
         </div>
 
-        <p style={{ fontSize:11, fontWeight:600, color:'#383838', textTransform:'uppercase', letterSpacing:'0.08em', marginBottom:11 }}>Select an event type</p>
+        <p style={{ fontSize:11, fontWeight:600, color:'#707070', textTransform:'uppercase', letterSpacing:'0.08em', marginBottom:11 }}>Select an event type</p>
         <div style={{ display:'flex', flexDirection:'column', gap:7 }}>
           {eventTypes.map(et => {
             const LocIcon = locIcon[et.location_type] || locIcon.default;
@@ -69,10 +69,10 @@ export default function PublicProfilePage() {
                 <div style={{ flex:1, padding:'15px 17px', display:'flex', alignItems:'center', justifyContent:'space-between', gap:11 }}>
                   <div>
                     <h3 style={{ fontSize:14, fontWeight:600, color:'#d8d8d8', marginBottom:5 }}>{et.title}</h3>
-                    {et.description && <p style={{ fontSize:12, color:'#404040', lineHeight:1.5, marginBottom:9, display:'-webkit-box', WebkitLineClamp:2, WebkitBoxOrient:'vertical', overflow:'hidden' }}>{et.description}</p>}
+                    {et.description && <p style={{ fontSize:12, color:'#909090', lineHeight:1.5, marginBottom:9, display:'-webkit-box', WebkitLineClamp:2, WebkitBoxOrient:'vertical', overflow:'hidden' }}>{et.description}</p>}
                     <div style={{ display:'flex', gap:13 }}>
-                      <span style={{ display:'inline-flex', alignItems:'center', gap:4, fontSize:12, color:'#505050' }}><Clock size={11} />{getDuration(et.duration)}</span>
-                      {et.location_type && <span style={{ display:'inline-flex', alignItems:'center', gap:4, fontSize:12, color:'#505050' }}><LocIcon size={11} />{et.location_type === 'video' ? 'Video' : et.location_type === 'phone' ? 'Phone' : 'In person'}</span>}
+                      <span style={{ display:'inline-flex', alignItems:'center', gap:4, fontSize:12, color:'#a0a0a0' }}><Clock size={11} />{getDuration(et.duration)}</span>
+                      {et.location_type && <span style={{ display:'inline-flex', alignItems:'center', gap:4, fontSize:12, color:'#a0a0a0' }}><LocIcon size={11} />{et.location_type === 'video' ? 'Video' : et.location_type === 'phone' ? 'Phone' : 'In person'}</span>}
                     </div>
                   </div>
                   <ArrowRight size={15} color="#2a2a2a" />
@@ -82,7 +82,7 @@ export default function PublicProfilePage() {
           })}
         </div>
       </div>
-      <div style={{ textAlign:'center', padding:'28px 0', fontSize:12, color:'#1f1f1f' }}>Powered by Cal.clone</div>
+      <div style={{ textAlign:'center', padding:'28px 0', fontSize:12, color:'#505050' }}>Powered by Cal.clone</div>
     </div>
   );
 }

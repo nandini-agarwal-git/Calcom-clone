@@ -106,7 +106,7 @@ export default function PublicBookingPage() {
               </div>
               <div>
                 <div style={{ fontSize:13, fontWeight:600, color:'#c0c0c0' }}>{user.name}</div>
-                <div style={{ fontSize:11, color:'#404040' }}>@{user.username}</div>
+                <div style={{ fontSize:11, color:'#808080' }}>@{user.username}</div>
               </div>
             </div>
             <div style={{ width:9, height:9, borderRadius:'50%', backgroundColor:'#505050', marginBottom:11 }} />
@@ -114,14 +114,14 @@ export default function PublicBookingPage() {
             {et.description && <p style={{ fontSize:13, color:'#505050', lineHeight:1.6, marginBottom:18 }}>{et.description}</p>}
             <div style={{ display:'flex', flexDirection:'column', gap:9 }}>
               {[[Clock, getDuration(et.duration)], et.location && [LocIcon, et.location], [Globe, user.timezone]].filter(Boolean).map(([Icon, val], i) => (
-                <div key={i} style={{ display:'flex', alignItems:'center', gap:8, fontSize:13, color:'#606060' }}><Icon size={14} color="#404040" /><span>{val}</span></div>
+                <div key={i} style={{ display:'flex', alignItems:'center', gap:8, fontSize:13, color:'#a0a0a0' }}><Icon size={14} color="#404040" /><span>{val}</span></div>
               ))}
             </div>
             {selDate && selSlot && (
               <div style={{ marginTop:22, padding:13, backgroundColor:'#1a1a1a', borderRadius:9, border:'1px solid #252525' }}>
                 <div style={{ fontSize:11, fontWeight:600, color:'#505050', marginBottom:4 }}>{format(selDate,'EEEE, MMMM d')}</div>
                 <div style={{ fontSize:18, fontWeight:700, color:'#c0c0c0' }}>{selSlot.display}</div>
-                <div style={{ fontSize:12, color:'#404040', marginTop:3 }}>{getDuration(et.duration)}</div>
+                <div style={{ fontSize:12, color:'#808080', marginTop:3 }}>{getDuration(et.duration)}</div>
               </div>
             )}
           </div>
@@ -139,7 +139,7 @@ export default function PublicBookingPage() {
                 </div>
                 <div style={{ display:'grid', gridTemplateColumns:'repeat(7,1fr)', marginBottom:7 }}>
                   {['SUN','MON','TUE','WED','THU','FRI','SAT'].map(d => (
-                    <div key={d} style={{ textAlign:'center', fontSize:10, fontWeight:600, color:'#303030', padding:'3px 0', letterSpacing:'0.06em' }}>{d}</div>
+                    <div key={d} style={{ textAlign:'center', fontSize:10, fontWeight:600, color:'#707070', padding:'3px 0', letterSpacing:'0.06em' }}>{d}</div>
                   ))}
                 </div>
                 <div style={{ display:'grid', gridTemplateColumns:'repeat(7,1fr)', gap:3, marginBottom:20 }}>
@@ -151,7 +151,7 @@ export default function PublicBookingPage() {
                     return (
                       <button key={d.toISOString()} disabled={!avail} onClick={() => avail && pickDate(d)} style={{
                         aspectRatio:'1', display:'flex', alignItems:'center', justifyContent:'center', borderRadius:'50%', fontSize:13, border:'none', background:'none', cursor: avail ? 'pointer' : 'default', fontFamily:'inherit',
-                        color: sel ? '#0a0a0a' : avail ? '#c8c8c8' : '#1e1e1e',
+                        color: sel ? '#0a0a0a' : avail ? '#f0f0f0' : '#a0a0a0',
                         backgroundColor: sel ? '#d0d0d0' : 'transparent',
                         fontWeight: avail ? 500 : 400,
                         outline: tod && !sel ? '1px solid #404040' : 'none',
@@ -166,7 +166,7 @@ export default function PublicBookingPage() {
                     {slotsLoading ? (
                       <div style={{ display:'flex', justifyContent:'center', padding:22 }}><Spinner /></div>
                     ) : slots.length === 0 ? (
-                      <p style={{ fontSize:13, color:'#404040' }}>No available times.</p>
+                      <p style={{ fontSize:13, color:'#909090' }}>No available times.</p>
                     ) : (
                       <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:7 }}>
                         {slots.map((s,i) => (
@@ -213,7 +213,7 @@ export default function PublicBookingPage() {
                   <Textarea label="Additional notes" value={form.notes} onChange={e => setForm(f=>({...f,notes:e.target.value}))} placeholder="Anything you'd like to share..." rows={2} />
                   <div style={{ display:'flex', alignItems:'center', gap:8, padding:'10px 12px', backgroundColor:'#1a1a1a', border:'1px solid #252525', borderRadius:8 }}>
                     <Clock size={12} color="#404040" />
-                    <span style={{ fontSize:13, color:'#606060' }}>{format(selDate,'EEE, MMM d')} · {selSlot?.display} · {getDuration(et.duration)}</span>
+                    <span style={{ fontSize:13, color:'#a0a0a0' }}>{format(selDate,'EEE, MMM d')} · {selSlot?.display} · {getDuration(et.duration)}</span>
                   </div>
                   <button type="submit" disabled={booking} style={{ width:'100%', padding:'11px', borderRadius:8, border:'none', backgroundColor: booking ? '#1e1e1e' : '#d8d8d8', color: booking ? '#505050' : '#0a0a0a', fontSize:14, fontWeight:600, cursor: booking ? 'not-allowed' : 'pointer', fontFamily:'inherit' }}>
                     {booking ? 'Booking...' : et.requires_confirmation ? 'Request booking' : 'Confirm booking'}
@@ -224,7 +224,7 @@ export default function PublicBookingPage() {
           </div>
         </div>
       </div>
-      <div style={{ textAlign:'center', padding:'24px 0', fontSize:12, color:'#1f1f1f' }}>Powered by Cal.clone</div>
+      <div style={{ textAlign:'center', padding:'24px 0', fontSize:12, color:'#505050' }}>Powered by Cal.clone</div>
     </div>
   );
 }

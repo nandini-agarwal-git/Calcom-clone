@@ -60,7 +60,7 @@ export default function BookingsPage() {
       <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 22, flexWrap: 'wrap', gap: 12 }}>
         <div>
           <h1 style={{ fontSize: 21, fontWeight: 700, color: '#f0f0f0', letterSpacing: '-0.4px', marginBottom: 4 }}>Bookings</h1>
-          <p style={{ fontSize: 13, color: '#505050' }}>See upcoming and past events booked on your calendar.</p>
+          <p style={{ fontSize: 13, color: '#a0a0a0' }}>See upcoming and past events booked on your calendar.</p>
         </div>
         <div style={{ position: 'relative' }}>
           <Search size={13} color="#404040" style={{ position: 'absolute', left: 10, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }} />
@@ -71,7 +71,7 @@ export default function BookingsPage() {
       {/* Tabs */}
       <div style={{ display: 'flex', borderBottom: '1px solid #1f1f1f', marginBottom: 22 }}>
         {TABS.map(t => (
-          <button key={t.key} onClick={() => setTab(t.key)} style={{ padding: '10px 18px', fontSize: 13, fontWeight: 500, border: 'none', background: 'none', cursor: 'pointer', color: tab===t.key ? '#c0c0c0' : '#404040', borderBottom: `2px solid ${tab===t.key ? '#808080' : 'transparent'}`, marginBottom: -1, transition: 'all 150ms', fontFamily: 'inherit' }}>
+          <button key={t.key} onClick={() => setTab(t.key)} style={{ padding: '10px 18px', fontSize: 13, fontWeight: 500, border: 'none', background: 'none', cursor: 'pointer', color: tab===t.key ? '#f0f0f0' : '#808080', borderBottom: `2px solid ${tab===t.key ? '#808080' : 'transparent'}`, marginBottom: -1, transition: 'all 150ms', fontFamily: 'inherit' }}>
             {t.label}
           </button>
         ))}
@@ -82,7 +82,7 @@ export default function BookingsPage() {
       ) : filtered.length === 0 ? (
         <div style={{ textAlign: 'center', padding: '80px 0', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12 }}>
           <Calendar size={28} color="#252525" />
-          <p style={{ color: '#404040', fontSize: 14 }}>No {tab} bookings</p>
+          <p style={{ color: '#909090', fontSize: 14 }}>No {tab} bookings</p>
         </div>
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
@@ -96,7 +96,7 @@ export default function BookingsPage() {
                     <Avatar name={b.booker_name} size={32} />
                     <div>
                       <div style={{ fontSize: 14, fontWeight: 600, color: '#e0e0e0' }}>{b.booker_name}</div>
-                      <div style={{ fontSize: 12, color: '#404040', marginTop: 1 }}>{b.event_title}</div>
+                      <div style={{ fontSize: 12, color: '#909090', marginTop: 1 }}>{b.event_title}</div>
                     </div>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
@@ -114,7 +114,7 @@ export default function BookingsPage() {
                     [Clock, getDuration(b.duration)],
                     ...(b.location ? [[MapPin, b.location]] : []),
                   ].map(([Icon, val], i) => (
-                    <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: 5, fontSize: 12, color: '#505050' }}>
+                    <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: 5, fontSize: 12, color: '#a0a0a0' }}>
                       <Icon size={11} />{val}
                     </span>
                   ))}
@@ -122,12 +122,12 @@ export default function BookingsPage() {
                 {expanded === b.id && (
                   <div style={{ marginTop: 12, paddingTop: 12, borderTop: '1px solid #1a1a1a' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 7 }}>
-                      <span style={{ fontSize: 12, color: '#404040', width: 55 }}>Email</span>
+                      <span style={{ fontSize: 12, color: '#909090', width: 55 }}>Email</span>
                       <span style={{ fontSize: 13, color: '#808080' }}>{b.booker_email}</span>
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
-                      <span style={{ fontSize: 12, color: '#404040', width: 55 }}>ID</span>
-                      <span style={{ fontSize: 11, color: '#3a3a3a', fontFamily: 'monospace' }}>{b.uid}</span>
+                      <span style={{ fontSize: 12, color: '#909090', width: 55 }}>ID</span>
+                      <span style={{ fontSize: 11, color: '#707070', fontFamily: 'monospace' }}>{b.uid}</span>
                     </div>
                     {b.status !== 'cancelled' && !isDatePast(b.end_time) && (
                       <button onClick={() => setCancelTarget(b)} style={{ display: 'inline-flex', alignItems: 'center', gap: 5, padding: '6px 12px', borderRadius: 6, border: '1px solid #2a2a2a', backgroundColor: 'transparent', color: '#707070', fontSize: 12, fontWeight: 500, cursor: 'pointer', fontFamily: 'inherit' }}>

@@ -80,7 +80,7 @@ export default function EventTypesPage() {
       <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 26, flexWrap: 'wrap', gap: 14 }}>
         <div>
           <h1 style={{ fontSize: 21, fontWeight: 700, color: '#f0f0f0', letterSpacing: '-0.4px', marginBottom: 4 }}>Event types</h1>
-          <p style={{ fontSize: 13, color: '#505050' }}>Configure different events for people to book on your calendar.</p>
+          <p style={{ fontSize: 13, color: '#a0a0a0' }}>Configure different events for people to book on your calendar.</p>
         </div>
         <div style={{ display: 'flex', gap: 9, alignItems: 'center' }}>
           <div style={{ position: 'relative' }}>
@@ -99,7 +99,7 @@ export default function EventTypesPage() {
         <div style={{ textAlign: 'center', padding: '80px 24px' }}>
           <div style={{ width: 50, height: 50, borderRadius: 12, backgroundColor: '#181818', border: '1px solid #252525', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}><Clock size={22} color="#404040" /></div>
           <h3 style={{ fontSize: 15, fontWeight: 600, color: '#c0c0c0', marginBottom: 7 }}>No event types</h3>
-          <p style={{ fontSize: 13, color: '#404040', marginBottom: 22 }}>Create your first event type to start accepting bookings.</p>
+          <p style={{ fontSize: 13, color: '#909090', marginBottom: 22 }}>Create your first event type to start accepting bookings.</p>
           <button onClick={() => { setEditItem(null); setShowForm(true); }} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '8px 16px', borderRadius: 7, backgroundColor: '#e8e8e8', color: '#0a0a0a', fontSize: 13, fontWeight: 600, border: 'none', cursor: 'pointer' }}>
             <Plus size={13} /> Create event type
           </button>
@@ -120,12 +120,12 @@ export default function EventTypesPage() {
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 9, flexWrap: 'wrap' }}>
                     <span style={{ fontSize: 14, fontWeight: 600, color: '#e8e8e8' }}>{et.title}</span>
-                    <span style={{ fontSize: 12, color: '#3a3a3a', fontFamily: 'monospace' }}>/alex/{et.slug}</span>
+                    <span style={{ fontSize: 12, color: '#707070', fontFamily: 'monospace' }}>/alex/{et.slug}</span>
                     {!et.is_active && <span style={{ fontSize: 11, padding: '1px 8px', borderRadius: 20, backgroundColor: '#1a1a1a', border: '1px solid #252525', color: '#505050', fontWeight: 500 }}>Hidden</span>}
                   </div>
                   <div style={{ display: 'flex', gap: 12, marginTop: 5, flexWrap: 'wrap' }}>
-                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 12, color: '#4a4a4a' }}><Clock size={11} /> {getDuration(et.duration)}</span>
-                    {et.location && <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 12, color: '#4a4a4a' }}><LocIcon size={11} /> {et.location}</span>}
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 12, color: '#909090' }}><Clock size={11} /> {getDuration(et.duration)}</span>
+                    {et.location && <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 12, color: '#909090' }}><LocIcon size={11} /> {et.location}</span>}
                     {et.upcoming_bookings > 0 && <span style={{ fontSize: 12, color: '#707070' }}>{et.upcoming_bookings} upcoming</span>}
                   </div>
                 </div>

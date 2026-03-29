@@ -70,7 +70,7 @@ export default function AvailabilityPage() {
     } catch (e) { toast.error(e.message); }
   };
 
-  if (loading) return <div style={{ display: 'flex', justifyContent: 'center', padding: '80px 0' }}><span style={{ color: '#404040', fontSize: 14 }}>Loading...</span></div>;
+  if (loading) return <div style={{ display: 'flex', justifyContent: 'center', padding: '80px 0' }}><span style={{ color: '#909090', fontSize: 14 }}>Loading...</span></div>;
 
   const timeSel = { padding: '6px 10px', backgroundColor: '#1a1a1a', border: '1px solid #2a2a2a', borderRadius: 7, fontSize: 13, color: '#c0c0c0', cursor: 'pointer', fontFamily: 'inherit' };
 
@@ -79,7 +79,7 @@ export default function AvailabilityPage() {
       <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 26, flexWrap: 'wrap', gap: 12 }}>
         <div>
           <h1 style={{ fontSize: 21, fontWeight: 700, color: '#f0f0f0', letterSpacing: '-0.4px', marginBottom: 4 }}>Availability</h1>
-          <p style={{ fontSize: 13, color: '#505050' }}>Configure when you're available for bookings.</p>
+          <p style={{ fontSize: 13, color: '#a0a0a0' }}>Configure when you're available for bookings.</p>
         </div>
         <Button onClick={save} loading={saving} size="sm"><Save size={13} /> Save changes</Button>
       </div>
@@ -87,12 +87,12 @@ export default function AvailabilityPage() {
       <div style={{ display: 'grid', gridTemplateColumns: '196px 1fr', gap: 18, alignItems: 'start' }}>
         {/* Schedule list */}
         <div style={{ backgroundColor: '#111', border: '1px solid #1f1f1f', borderRadius: 10, overflow: 'hidden' }}>
-          <div style={{ padding: '9px 13px', fontSize: 10, fontWeight: 600, color: '#3a3a3a', textTransform: 'uppercase', letterSpacing: '0.08em', borderBottom: '1px solid #1a1a1a' }}>Schedules</div>
+          <div style={{ padding: '9px 13px', fontSize: 10, fontWeight: 600, color: '#707070', textTransform: 'uppercase', letterSpacing: '0.08em', borderBottom: '1px solid #1a1a1a' }}>Schedules</div>
           {schedules.map((s, i) => (
             <button key={s.id} onClick={() => setIdx(i)} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', padding: '11px 13px', border: 'none', background: 'none', cursor: 'pointer', borderLeft: `2px solid ${i===idx ? '#808080' : 'transparent'}`, backgroundColor: i===idx ? '#1a1a1a' : 'transparent', transition: 'background-color 150ms' }}>
               <div style={{ textAlign: 'left' }}>
                 <div style={{ fontSize: 13, fontWeight: 500, color: i===idx ? '#e0e0e0' : '#606060' }}>{s.name}</div>
-                {s.is_default && <div style={{ fontSize: 10, color: '#505050', marginTop: 2 }}>Default</div>}
+                {s.is_default && <div style={{ fontSize: 10, color: '#808080', marginTop: 2 }}>Default</div>}
               </div>
               <ChevronRight size={13} color="#3a3a3a" />
             </button>
@@ -112,21 +112,21 @@ export default function AvailabilityPage() {
             {/* Weekly hours */}
             <div style={{ backgroundColor: '#111', border: '1px solid #1f1f1f', borderRadius: 10, padding: 18 }}>
               <h3 style={{ fontSize: 14, fontWeight: 600, color: '#c0c0c0', marginBottom: 4 }}>Weekly hours</h3>
-              <p style={{ fontSize: 12, color: '#404040', marginBottom: 16 }}>Set your available hours for each day of the week.</p>
+              <p style={{ fontSize: 12, color: '#909090', marginBottom: 16 }}>Set your available hours for each day of the week.</p>
               {DAY_NAMES.map((day, dow) => {
                 const rule = sch.rules?.find(r => r.day_of_week === dow) || { day_of_week: dow, start_time: '09:00', end_time: '17:00', is_available: false };
                 return (
                   <div key={dow} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '9px 0', borderBottom: '1px solid #141414' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 11, width: 170 }}>
                       <Toggle checked={!!rule.is_available} onChange={v => updateRule(dow, 'is_available', v)} />
-                      <span style={{ fontSize: 13, fontWeight: 500, color: rule.is_available ? '#d0d0d0' : '#383838' }}>{day}</span>
+                      <span style={{ fontSize: 13, fontWeight: 500, color: rule.is_available ? '#e8e8e8' : '#606060' }}>{day}</span>
                     </div>
                     {rule.is_available ? (
                       <div style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
                         <select value={rule.start_time?.substring(0,5)||'09:00'} onChange={e => updateRule(dow,'start_time',e.target.value)} style={timeSel}>
                           {TIMES.map(t => <option key={t.value} value={t.value}>{t.label}</option>)}
                         </select>
-                        <span style={{ color: '#383838', fontSize: 13 }}>–</span>
+                        <span style={{ color: '#707070', fontSize: 13 }}>–</span>
                         <select value={rule.end_time?.substring(0,5)||'17:00'} onChange={e => updateRule(dow,'end_time',e.target.value)} style={timeSel}>
                           {TIMES.map(t => <option key={t.value} value={t.value}>{t.label}</option>)}
                         </select>
@@ -142,7 +142,7 @@ export default function AvailabilityPage() {
             {/* Date overrides */}
             <div style={{ backgroundColor: '#111', border: '1px solid #1f1f1f', borderRadius: 10, padding: 18 }}>
               <h3 style={{ fontSize: 14, fontWeight: 600, color: '#c0c0c0', marginBottom: 4 }}>Date overrides</h3>
-              <p style={{ fontSize: 12, color: '#404040', marginBottom: 14 }}>Block specific dates or set custom hours for a day.</p>
+              <p style={{ fontSize: 12, color: '#909090', marginBottom: 14 }}>Block specific dates or set custom hours for a day.</p>
               {sch.overrides?.length > 0 && (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 7, marginBottom: 14 }}>
                   {sch.overrides.map(ov => (
@@ -171,7 +171,7 @@ export default function AvailabilityPage() {
                   {ovType === 'custom' && (
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                       <select value={ovStart} onChange={e => setOvStart(e.target.value)} style={timeSel}>{TIMES.map(t => <option key={t.value} value={t.value}>{t.label}</option>)}</select>
-                      <span style={{ color: '#383838' }}>–</span>
+                      <span style={{ color: '#707070' }}>–</span>
                       <select value={ovEnd} onChange={e => setOvEnd(e.target.value)} style={timeSel}>{TIMES.map(t => <option key={t.value} value={t.value}>{t.label}</option>)}</select>
                     </div>
                   )}

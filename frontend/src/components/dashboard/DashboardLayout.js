@@ -73,7 +73,7 @@ export default function DashboardLayout() {
                 display: 'flex', alignItems: 'center', gap: 9,
                 padding: '8px 10px', borderRadius: 6, marginBottom: 2,
                 fontSize: 13, fontWeight: 500, textDecoration: 'none',
-                color: isActive ? D.text : D.text3,
+                color: isActive ? D.text : '#b0b0b0',
                 backgroundColor: isActive ? D.surf2 : 'transparent',
                 transition: 'all 150ms',
               })}
@@ -90,9 +90,9 @@ export default function DashboardLayout() {
             { icon: ExternalLink, label: 'View public page',       onClick: () => window.open(`${BASE}/book/alex`, '_blank') },
             { icon: Copy,         label: 'Copy public page link',  onClick: () => { navigator.clipboard.writeText(`${BASE}/book/alex`); } },
           ].map(({ icon: Icon, label, onClick }) => (
-            <button key={label} onClick={onClick} style={{ display: 'flex', alignItems: 'center', gap: 9, padding: '8px 10px', borderRadius: 6, border: 'none', background: 'none', cursor: 'pointer', color: D.text3, fontSize: 12, fontWeight: 400, width: '100%', textAlign: 'left', fontFamily: 'inherit', transition: 'color 150ms' }}
-              onMouseEnter={e => e.currentTarget.style.color = D.text2}
-              onMouseLeave={e => e.currentTarget.style.color = D.text3}
+            <button key={label} onClick={onClick} style={{ display: 'flex', alignItems: 'center', gap: 9, padding: '8px 10px', borderRadius: 6, border: 'none', background: 'none', cursor: 'pointer', color: '#b0b0b0', fontSize: 12, fontWeight: 400, width: '100%', textAlign: 'left', fontFamily: 'inherit', transition: 'color 150ms' }}
+              onMouseEnter={e => e.currentTarget.style.color = '#e0e0e0'}
+              onMouseLeave={e => e.currentTarget.style.color = '#b0b0b0'}
             >
               <Icon size={13} />{label}
             </button>

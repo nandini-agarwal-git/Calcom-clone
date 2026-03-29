@@ -47,7 +47,7 @@ export default function BookingConfirmPage() {
             <div style={{ fontSize:15, fontWeight:700, color:'#e0e0e0', marginBottom:3 }}>
               {pending ? 'Booking requested' : 'Booking confirmed'}
             </div>
-            <div style={{ fontSize:13, color:'#505050' }}>
+            <div style={{ fontSize:13, color:'#a0a0a0' }}>
               {pending ? 'Awaiting confirmation from the host.' : `Confirmation sent to ${booking.booker_email}`}
             </div>
           </div>
@@ -72,7 +72,7 @@ export default function BookingConfirmPage() {
               <div key={label} style={{ display:'flex', alignItems:'flex-start', justifyContent:'space-between', gap:11 }}>
                 <div style={{ display:'flex', alignItems:'center', gap:7, minWidth:75 }}>
                   {Icon && <Icon size={14} color="#3a3a3a" />}
-                  <span style={{ fontSize:11, fontWeight:600, color:'#404040', textTransform:'uppercase', letterSpacing:'0.05em' }}>{label}</span>
+                  <span style={{ fontSize:11, fontWeight:600, color:'#808080', textTransform:'uppercase', letterSpacing:'0.05em' }}>{label}</span>
                 </div>
                 <span style={{ fontSize:13, fontWeight:500, color:'#c0c0c0', textAlign:'right' }}>{val}</span>
               </div>
@@ -84,8 +84,8 @@ export default function BookingConfirmPage() {
           <div style={{ display:'flex', flexDirection:'column', gap:9 }}>
             {[['Name',booking.booker_name],['Email',booking.booker_email],['Booking ID',booking.uid]].map(([k,v]) => (
               <div key={k} style={{ display:'flex', justifyContent:'space-between', alignItems:'center' }}>
-                <span style={{ fontSize:12, color:'#404040' }}>{k}</span>
-                <span style={{ fontSize:13, color:'#808080', fontWeight:500, ...(k==='Booking ID'?{fontFamily:'monospace',fontSize:11,color:'#383838'}:{}) }}>{v}</span>
+                <span style={{ fontSize:12, color:'#909090' }}>{k}</span>
+                <span style={{ fontSize:13, color:'#808080', fontWeight:500, ...(k==='Booking ID'?{fontFamily:'monospace',fontSize:11,color:'#707070'}:{}) }}>{v}</span>
               </div>
             ))}
           </div>
@@ -99,7 +99,7 @@ export default function BookingConfirmPage() {
           <Link to="/book/alex" style={{ fontSize:13, color:'#606060' }}>Schedule another →</Link>
         </div>
       </div>
-      <div style={{ textAlign:'center', padding:'20px 0', fontSize:12, color:'#1f1f1f' }}>Powered by Cal.clone</div>
+      <div style={{ textAlign:'center', padding:'20px 0', fontSize:12, color:'#505050' }}>Powered by Cal.clone</div>
     </div>
   );
 }
